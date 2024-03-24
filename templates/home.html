@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  <style>
+    body {
+      background-color: lightblue; /* Set light blue background color */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>Anomaly Detection Prediction</h1>
+
+    <h4>**Note :** There are 10 important features for predictions to be used</h4>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="src_bytes" placeholder="src_bytes" required="required" /><br>
+      <input type="text" name="dst_bytes" placeholder="dst_bytes" required="required" /><br>
+      <input type="text" name="dst_host_diff_srv_rate" placeholder="dst_host_diff_srv_rate" required="required" /><br>
+      <input type="text" name="dst_host_same_srv_rate" placeholder="dst_host_same_srv_rate" required="required" /><br>
+      <input type="text" name="service" placeholder="service" required="required" /><br>
+      <input type="text" name="dst_host_rerror_rate" placeholder="dst_host_rerror_rate" required="required" /><br>
+      <input type="text" name="dst_host_same_src_port_rate" placeholder="dst_host_same_src_port_rate" required="required" /><br>
+      <input type="text" name="dst_host_srv_count" placeholder="dst_host_srv_count" required="required" /><br>
+      <input type="text" name="duration" placeholder="duration" required="required" /><br>
+      <input type="text" name="flag" placeholder="flag" required="required" /><br><br><br>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+
+  </div>
+  {{prediction_text}}
+
+</body>
+
+</html>
